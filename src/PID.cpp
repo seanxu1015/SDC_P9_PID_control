@@ -59,7 +59,7 @@ void PID::Twiddle() {
     *tau += *tau_d;
   }
   // if the circle hasn't finished , do nothing
-  if (step <= interval * 2 && Dp + Di + Dd <= tolerance)
+  if (step <= interval * 2 || Dp + Di + Dd <= tolerance)
     return;
   // circle is finished, calculate error and set step to 0
   double err = TotalError();
